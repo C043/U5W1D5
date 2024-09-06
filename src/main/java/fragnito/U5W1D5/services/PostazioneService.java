@@ -36,4 +36,13 @@ public class PostazioneService {
         log.info("Postazione con id: {} è stata eliminata con successo!", postazioneId);
     }
 
+    public void findPostazioneByIdAndUpdate(Long postazioneId, Postazione updatedPostazione) {
+        Postazione found = this.findPostazioneById(postazioneId);
+        found.setDescrizione(updatedPostazione.getDescrizione());
+        found.setTipoPostazione(updatedPostazione.getTipoPostazione());
+        found.setEdificio(updatedPostazione.getEdificio());
+        found.setMaxOccupanti(updatedPostazione.getMaxOccupanti());
+        postazioneRepository.save(found);
+        log.info("Postazione con id: {} è stata aggiornata con successo!", postazioneId);
+    }
 }

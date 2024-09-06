@@ -34,6 +34,7 @@ public class Postazione {
     private Edificio edificio;
 
     @OneToMany(mappedBy = "postazione")
+    @Setter(AccessLevel.NONE)
     private List<Prenotazione> prenotazioneList;
 
     public Postazione(String descrizione, TipoPostazione tipoPostazione, Edificio edificio) {
