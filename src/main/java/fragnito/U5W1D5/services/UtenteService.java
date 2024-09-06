@@ -15,7 +15,8 @@ public class UtenteService {
     private UtenteRepository utenteRepository;
 
     public void saveUtente(Utente utente) {
-        if (utenteRepository.existsByEmail(utente.getEmail())) throw new ValidationException("Esiste già un utente con questa email");
+        if (utenteRepository.existsByEmailOrUsername(utente.getEmail(), utente.getUsername())) throw new ValidationException("Esiste già un utente con questa email o " +
+                "con questo username");
         if (utente.getNomeCompleto().length() < 2) throw new ValidationException("Nome troppo corto!");
         utenteRepository.save(utente);
         log.info("Utente {} salvato con successo!", utente.getNomeCompleto());

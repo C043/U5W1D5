@@ -2,6 +2,7 @@ package fragnito.U5W1D5;
 
 import com.github.javafaker.Faker;
 import fragnito.U5W1D5.entities.Prenotazione;
+import fragnito.U5W1D5.entities.Utente;
 import fragnito.U5W1D5.enums.TipoPostazione;
 import fragnito.U5W1D5.exceptions.NotFoundException;
 import fragnito.U5W1D5.exceptions.ValidationException;
@@ -33,6 +34,8 @@ public class ApplicationRunner implements CommandLineRunner {
     public void run(String... args) throws Exception {
         Faker faker = new Faker();
         try {
+            utenteService.saveUtente(new Utente("Ajeje", "Aldo Baglio", "ajeje@gmail.com"));
+            utenteService.saveUtente(new Utente("Ajeje", "Aldo Baglio", "aiaiai@gmail.com"));
             prenotazioneService.savePrenotazione(new Prenotazione(LocalDate.now().plusDays(1), utenteService.findUtenteById(1L),
                     postazioneService.findPostazioneById(8L)));
             prenotazioneService.savePrenotazione(new Prenotazione(LocalDate.now().plusDays(1), utenteService.findUtenteById(2L),
