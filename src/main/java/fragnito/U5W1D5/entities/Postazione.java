@@ -34,10 +34,14 @@ public class Postazione {
     @OneToMany(mappedBy = "postazione")
     private List<Prenotazione> prenotazioneList;
 
-    public Postazione(String descrizione, TipoPostazione tipoPostazione, int maxOccupanti, Edificio edificio) {
+    public Postazione(String descrizione, TipoPostazione tipoPostazione, Edificio edificio) {
         this.descrizione = descrizione;
         this.tipoPostazione = tipoPostazione;
-        this.maxOccupanti = maxOccupanti;
+        switch (tipoPostazione) {
+            case PRIVATO -> this.maxOccupanti = 5;
+            case OPENSPACE -> this.maxOccupanti = 50;
+            case SALA_RIUNIONI -> this.maxOccupanti = 25;
+        }
         this.edificio = edificio;
     }
 }
