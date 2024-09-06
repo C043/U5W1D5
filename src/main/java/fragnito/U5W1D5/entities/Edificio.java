@@ -3,6 +3,9 @@ package fragnito.U5W1D5.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "edifici")
 @Getter
@@ -23,6 +26,9 @@ public class Edificio {
 
     @Column(name = "città", nullable = false)
     private String citta;
+
+    @OneToMany(mappedBy = "edificio")
+    private List<Postazione> postazioneList = new ArrayList<>();
 
     public Edificio(String nome, String indirizzo, String citta) {
         this.nome = nome;

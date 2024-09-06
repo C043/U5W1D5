@@ -4,6 +4,8 @@ import fragnito.U5W1D5.enums.TipoPostazione;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "postazioni")
 @Getter
@@ -28,6 +30,9 @@ public class Postazione {
     @ManyToOne
     @JoinColumn(name = "edificio_id")
     private Edificio edificio;
+
+    @OneToMany(mappedBy = "postazione")
+    private List<Prenotazione> prenotazioneList;
 
     public Postazione(String descrizione, TipoPostazione tipoPostazione, int maxOccupanti, Edificio edificio) {
         this.descrizione = descrizione;

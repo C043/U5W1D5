@@ -3,6 +3,9 @@ package fragnito.U5W1D5.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "utenti")
 @Getter
@@ -23,6 +26,9 @@ public class Utente {
 
     @Column(nullable = false)
     private String email;
+
+    @OneToMany(mappedBy = "utente")
+    private List<Prenotazione> prenotazioneList = new ArrayList<>();
 
     public Utente(String username, String nomeCompleto, String email) {
         this.username = username;
