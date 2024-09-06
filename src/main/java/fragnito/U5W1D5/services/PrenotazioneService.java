@@ -31,8 +31,4 @@ public class PrenotazioneService {
         prenotazioneRepository.delete(this.findPrenotazioneById(prenotazioneId));
         log.info("Prenotazione con id: {} è stata eliminata con successo!", prenotazioneId);
     }
-
-    public void findPrenotazioneByIdAndUpdate(Long prenotazioneId, Prenotazione updatedPrenotazione) {
-        Prenotazione found = this.findPrenotazioneById(prenotazioneId);
-    }
 }
