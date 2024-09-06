@@ -28,4 +28,13 @@ public class EdificioService {
         edificioRepository.delete(this.findEdificioById(edificioId));
         log.info("Edificio con id: {} è stato eliminato con successo!", edificioId);
     }
+
+    public void findEdificioByIdAndUpdate(Long edificioId, Edificio updatedEdificio) {
+        Edificio found = this.findEdificioById(edificioId);
+        found.setCitta(updatedEdificio.getCitta());
+        found.setNome(updatedEdificio.getNome());
+        found.setIndirizzo(updatedEdificio.getIndirizzo());
+        edificioRepository.save(found);
+        log.info("Edificio con id: {} aggiornato con successo!", edificioId);
+    }
 }
