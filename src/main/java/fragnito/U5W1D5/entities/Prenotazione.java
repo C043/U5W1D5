@@ -28,8 +28,8 @@ public class Prenotazione {
     @JoinColumn(name = "postazione_id", nullable = false)
     private Postazione postazione;
 
-    public Prenotazione(Utente utente, Postazione postazione) {
-        this.giorno = LocalDate.now();
+    public Prenotazione(LocalDate giorno, Utente utente, Postazione postazione) {
+        this.giorno = giorno;
         this.utente = utente;
         this.postazione = postazione;
     }
