@@ -34,11 +34,17 @@ public class ApplicationRunner implements CommandLineRunner {
         Faker faker = new Faker();
         try {
             prenotazioneService.savePrenotazione(new Prenotazione(LocalDate.now().plusDays(1), utenteService.findUtenteById(1L),
-                    postazioneService.findPostazioneById(7L)));
+                    postazioneService.findPostazioneById(8L)));
             prenotazioneService.savePrenotazione(new Prenotazione(LocalDate.now().plusDays(1), utenteService.findUtenteById(2L),
-                    postazioneService.findPostazioneById(7L)));
-            prenotazioneService.savePrenotazione(new Prenotazione(LocalDate.now().plusDays(1), utenteService.findUtenteById(1L),
-                    postazioneService.findPostazioneById(7L)));
+                    postazioneService.findPostazioneById(8L)));
+            prenotazioneService.savePrenotazione(new Prenotazione(LocalDate.now().plusDays(1), utenteService.findUtenteById(3L),
+                    postazioneService.findPostazioneById(8L)));
+            prenotazioneService.savePrenotazione(new Prenotazione(LocalDate.now().plusDays(1), utenteService.findUtenteById(4L),
+                    postazioneService.findPostazioneById(8L)));
+            prenotazioneService.savePrenotazione(new Prenotazione(LocalDate.now().plusDays(1), utenteService.findUtenteById(5L),
+                    postazioneService.findPostazioneById(8L)));
+            prenotazioneService.savePrenotazione(new Prenotazione(LocalDate.now().plusDays(1), utenteService.findUtenteById(6L),
+                    postazioneService.findPostazioneById(8L)));
         } catch (ValidationException | NotFoundException e) {
             System.out.println(e.getMessage());
         }

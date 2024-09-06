@@ -16,6 +16,8 @@ public class PrenotazioneService {
     public void savePrenotazione(Prenotazione prenotazione) {
         if (prenotazioneRepository.existsByGiornoAndUtente(prenotazione.getGiorno(), prenotazione.getUtente())) throw new ValidationException("Esiste già una " +
                 "prenotazione questo giorno per questo utente");
+        if (prenotazioneRepository.countPrenotazioni(prenotazione.getGiorno()) == prenotazione.getPostazione().getMaxOccupanti()) throw new ValidationException(
+                "Postazione al completo per quel giorno!");
         prenotazioneRepository.save(prenotazione);
         log.info("Prenotazione per il giorno {} per l'utente {} alla postazione nell'edificio {} avvenuta con successo!", prenotazione.getGiorno(), prenotazione.getUtente(), prenotazione.getPostazione().getEdificio().getNome());
     }
