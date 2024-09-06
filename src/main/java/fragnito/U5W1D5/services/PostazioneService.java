@@ -30,4 +30,10 @@ public class PostazioneService {
         if (found.isEmpty()) log.info("Nessun elemento trovato.");
         return found;
     }
+
+    public void findPostazioneByIdAndDelete(Long postazioneId) {
+        postazioneRepository.delete(this.findPostazioneById(postazioneId));
+        log.info("Postazione con id: {} è stata eliminata con successo!", postazioneId);
+    }
+
 }

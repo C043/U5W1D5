@@ -25,4 +25,9 @@ public class UtenteService {
     public Utente findUtenteById(Long utenteId) {
         return utenteRepository.findById(utenteId).orElseThrow(() -> new NotFoundException(utenteId));
     }
+
+    public void findUtenteByIdAndDelete(Long utenteId) {
+        utenteRepository.delete(this.findUtenteById(utenteId));
+        log.info("Utente con id: {} eliminato con successo!", utenteId);
+    }
 }
