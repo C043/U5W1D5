@@ -2,6 +2,7 @@ package fragnito.U5W1D5;
 
 import com.github.javafaker.Faker;
 import fragnito.U5W1D5.entities.Prenotazione;
+import fragnito.U5W1D5.enums.TipoPostazione;
 import fragnito.U5W1D5.exceptions.NotFoundException;
 import fragnito.U5W1D5.exceptions.ValidationException;
 import fragnito.U5W1D5.services.EdificioService;
@@ -42,6 +43,7 @@ public class ApplicationRunner implements CommandLineRunner {
             System.out.println(e.getMessage());
         }
 
+        postazioneService.filterByTipoPostazioneAndCitta(TipoPostazione.OPENSPACE, "Milano").forEach(System.out::println);
 
     }
 }

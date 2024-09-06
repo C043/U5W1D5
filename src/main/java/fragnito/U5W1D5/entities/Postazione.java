@@ -2,7 +2,10 @@ package fragnito.U5W1D5.entities;
 
 import fragnito.U5W1D5.enums.TipoPostazione;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -10,7 +13,6 @@ import java.util.List;
 @Table(name = "postazioni")
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class Postazione {
     @Id
@@ -43,5 +45,16 @@ public class Postazione {
             case SALA_RIUNIONI -> this.maxOccupanti = 25;
         }
         this.edificio = edificio;
+    }
+
+    @Override
+    public String toString() {
+        return "Postazione{" +
+                "id=" + id +
+                ", descrizione='" + descrizione + '\'' +
+                ", tipoPostazione=" + tipoPostazione +
+                ", maxOccupanti=" + maxOccupanti +
+                ", edificio=" + edificio +
+                '}';
     }
 }

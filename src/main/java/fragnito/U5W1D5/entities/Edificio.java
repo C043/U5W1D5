@@ -1,7 +1,10 @@
 package fragnito.U5W1D5.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +13,6 @@ import java.util.List;
 @Table(name = "edifici")
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 public class Edificio {
     @Id
@@ -34,5 +36,15 @@ public class Edificio {
         this.nome = nome;
         this.indirizzo = indirizzo;
         this.citta = citta;
+    }
+
+    @Override
+    public String toString() {
+        return "Edificio{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", indirizzo='" + indirizzo + '\'' +
+                ", citta='" + citta + '\'' +
+                '}';
     }
 }
