@@ -30,6 +30,7 @@ public class Utente {
     private String email;
 
     @OneToMany(mappedBy = "utente")
+    @Setter(AccessLevel.NONE)
     private List<Prenotazione> prenotazioneList = new ArrayList<>();
 
     public Utente(String username, String nomeCompleto, String email) {
